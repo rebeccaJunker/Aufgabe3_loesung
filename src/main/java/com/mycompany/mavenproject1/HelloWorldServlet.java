@@ -20,7 +20,7 @@ public class HelloWorldServlet extends HttpServlet {
         String city = req.getParameter("city");
         
                 // declaring object of "OpenWeatherMap" class
-        OpenWeatherMap owm = new OpenWeatherMap("d5baeddbca603edb14a2b26102719cfe");
+        OpenWeatherMap owm = new OpenWeatherMap("");
 
         // getting current weather data for the "London" city
         CurrentWeather cwd = owm.currentWeatherByCityName(city);
