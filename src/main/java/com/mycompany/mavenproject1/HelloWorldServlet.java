@@ -14,37 +14,22 @@ import org.json.JSONException;
 @WebServlet(value="/helloWorld", name="helloWorldServlet")
 public class HelloWorldServlet extends HttpServlet {
    
-    
-/*public static void main(String[] args)
-            throws IOException, MalformedURLException, JSONException {
-
-        // declaring object of "OpenWeatherMap" class
-        OpenWeatherMap owm = new OpenWeatherMap("");
-
-        // getting current weather data for the "London" city
-        CurrentWeather cwd = owm.currentWeatherByCityName("Dortmund");
-
-        //printing city name from the retrieved data
-        System.out.println("City: " + cwd.getCityName());
-
-        // printing the max./min. temperature
-        System.out.println("Temperature: " + cwd.getMainInstance().getMaxTemperature()
-                            + "/" + cwd.getMainInstance().getMinTemperature() + "\'F");
-    }*/
-    @Override
+        @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        
+        String city = req.getParameter("city");
         
                 // declaring object of "OpenWeatherMap" class
         OpenWeatherMap owm = new OpenWeatherMap("d5baeddbca603edb14a2b26102719cfe");
 
         // getting current weather data for the "London" city
-        CurrentWeather cwd = owm.currentWeatherByCityName("Dortmund");
+        CurrentWeather cwd = owm.currentWeatherByCityName(city);
 
         //printing city name from the retrieved data
         resp.getWriter().print("City: " + cwd.getCityName());
 
         // printing the max./min. temperature
-        resp.getWriter().print("Temperature: " + cwd.getMainInstance().getMaxTemperature()
+        resp.getWriter().print(" Temperature: " + cwd.getMainInstance().getMaxTemperature()
                             + "/" + cwd.getMainInstance().getMinTemperature() + "\'F");
         
         //resp.setStatus(200);
